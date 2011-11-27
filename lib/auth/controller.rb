@@ -7,23 +7,23 @@ module Auth
       end
 
       #a hook for other object to authorize from outside the request object
-      def authorize user, resource, action
+      def manually_authorize user, resource, action
         auth_block = @@authorization_blocks[self.to_s]
-        authorized = unless auth_block.nil?
-                       auth_block.call({
+        if auth_block.nil?
+          authorized = false
+        else
+          authorized = auth_block.call({
                          :user => user,
                          :resource => resource,
                          :action => action,
                          :params => {},
                          :model => resource.class
                        })
-                     else
-                       false
-                     end
+         end
       end
 
       #these methods will be called from the Class level, not the instance level
-      def auth &block
+      def authorize &block
         @@authorization_blocks[self.to_s] = block unless block.nil?
       end
 
