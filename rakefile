@@ -1,0 +1,11 @@
+begin
+  require 'jeweler'
+  Jeweler::Tasks.new do |gem|
+    gem.name = 'auth_engine'
+    gem.summary = 'Authentication and Authorization'
+    gem.files = Dir["{lib}/**/*", "{app}/**/*", "{config}/**/*"]
+    gem.add_dependency 'orm_adapter'
+  end
+rescue
+  puts "Something broke, fix it."
+end
