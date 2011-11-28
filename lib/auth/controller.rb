@@ -1,5 +1,5 @@
 
-module Auth
+module Authorizr
   module Controller
     module ClassMethods
       def authorize_all

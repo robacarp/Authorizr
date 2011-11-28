@@ -1,7 +1,7 @@
-require "auth"
+require "authorizr"
 require "rails"
 
-module Auth
+module Authorizr
   class Engine < Rails::Engine
     engine_name :auth
   end

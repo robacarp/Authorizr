@@ -1,7 +1,7 @@
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = 'auth_engine'
+    gem.name = 'Authorizr'
     gem.summary = 'Authentication and Authorization'
     gem.files = Dir["{lib}/**/*", "{app}/**/*", "{config}/**/*"]
     gem.add_dependency 'orm_adapter'

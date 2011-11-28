@@ -1,5 +1,5 @@
-require 'auth/engine'
-require 'auth/controller'
+require 'authorizr/engine'
+require 'authorizr/controller'
 
-module Auth
+module Authorizr
 end
