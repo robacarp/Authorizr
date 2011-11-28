@@ -8,10 +8,17 @@ PATH
 GEM
   remote: http://rubygems.org/
   specs:
+    git (1.2.5)
+    jeweler (1.6.4)
+      bundler (~> 1.0)
+      git (>= 1.2.5)
+      rake
     orm_adapter (0.0.5)
+    rake (0.9.2.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   auth_engine!
+  jeweler

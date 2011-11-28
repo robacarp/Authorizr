@@ -3,6 +3,6 @@ require "rails"
 
 module Authorizr
   class Engine < Rails::Engine
-    engine_name :auth
+    engine_name :authorizr
   end
 end
