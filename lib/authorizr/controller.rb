@@ -7,17 +7,21 @@ module Authorizr
       end
 
       #a hook for other object to authorize from outside the request object
-      def manually_authorize user, resource, action
+      def manually_authorize params={}
+        params[:user]     ||= nil
+        params[:resource] ||= nil
+        params[:action]   ||= nil
+
         auth_block = @@authorization_blocks[self.to_s]
         if auth_block.nil?
           authorized = false
         else
           authorized = auth_block.call({
-                         :user => user,
-                         :resource => resource,
-                         :action => action,
+                         :user => params[:user],
+                         :resource => params[:resource],
+                         :action => params[:action],
                          :params => {},
-                         :model => resource.class
+                         :model => params[:resource].class
                        })
          end
       end
@@ -60,7 +64,7 @@ module Authorizr
       auth_block = self.class.authorization_blocks[self.class.to_s]
       return false if auth_block.nil?
 
-      params ||= nil
+      params = request.parameters || nil
 
       model, resource = build_resource params
 
@@ -95,9 +99,9 @@ module Authorizr
     def logit authorized
       if Rails.env == 'development'
         if authorized
-          Rails.logger.warn "\033[32mGRANT:\033[0m #{self.controller_name} #{self.action_name}" 
+          Rails.logger.warn "\033[32mGRANT:\033[0m #{self.controller_name} #{self.action_name}"
         else
-          Rails.logger.warn "\033[31mDENY:\033[0m #{self.controller_name} #{self.action_name}" 
+          Rails.logger.warn "\033[31mDENY:\033[0m #{self.controller_name} #{self.action_name}"
         end
       end
     end
@@ -119,7 +123,11 @@ module Authorizr
         else
           model = nil
         end
-      rescue ActiveRecord::RecordNotFound, NameError
+      rescue ActiveRecord::RecordNotFound
+        Rails.logger.warn "\033[31m Record not found.  Model:#{model_name} ID:#{parameters[:id]}"
+        model = resource = nil
+      rescue NameError
+        Rails.logger.warn "\033[31m Name Error.  Model:#{model_name} ID:#{parameters[:id]}"
         model = resource = nil
       end
 
@@ -132,4 +140,4 @@ module Authorizr
   end
 end
 
-ActionController::Base.send :include, Auth::Controller
+ActionController::Base.send :include, Authorizr::Controller
