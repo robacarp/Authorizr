@@ -7,7 +7,7 @@ Now sporting:
 - Out of the box whitelist approach
 - Easy debugging of authorization actions with logger output
 
-## Implementing:
+== Implementing:
 
 Simply add one line to your application controller to authorize all requests for all controllers:
 
@@ -21,7 +21,7 @@ app/controllers/application_controller.rb:
 
 Then in your controllers define an authorize block.  Simply return true if the user is authorized to view the resoure and false if not.  The block takes one parameter, the environment.
 
-### Examples:
+=== Examples:
 
 app/controllers/posts_controller.rb:
 

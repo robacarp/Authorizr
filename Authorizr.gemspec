@@ -8,14 +8,15 @@ Gem::Specification.new do |s|
   s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.date = "2011-11-28"
+  s.date = "2011-11-29"
   s.extra_rdoc_files = [
     "README.rdoc"
   ]
   s.files = [
-    "lib/auth/controller.rb",
-    "lib/auth/engine.rb",
-    "lib/authorizr.rb"
+    "lib/authorizr.rb",
+    "lib/authorizr/controller.rb",
+    "lib/authorizr/engine.rb",
+    "lib/authorizr/model.rb"
   ]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.10"
