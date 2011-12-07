@@ -1,8 +1,9 @@
 PATH
   remote: .
   specs:
-    auth_engine (0.0.1)
-      auth_engine
+    Authorizr (0.1.0)
+      Authorizr
+      jeweler
       orm_adapter
 
 GEM
@@ -20,5 +21,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  auth_engine!
+  Authorizr!
   jeweler
