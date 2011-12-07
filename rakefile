@@ -4,6 +4,7 @@ begin
     gem.name = 'Authorizr'
     gem.summary = 'Authentication and Authorization'
     gem.files = Dir["{lib}/**/*", "{app}/**/*", "{config}/**/*"]
+    gem.authors = ["Robert Carpenter"]
     gem.add_dependency 'orm_adapter'
   end
 rescue
