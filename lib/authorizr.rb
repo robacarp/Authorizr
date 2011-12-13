@@ -1,4 +1,4 @@
-require 'authorizr/engine'
+require 'authorizr/railtie'
 require 'authorizr/controller'
 require 'authorizr/model'
 

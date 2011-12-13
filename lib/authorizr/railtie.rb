@@ -2,7 +2,8 @@ require "authorizr"
 require "rails"
 
 module Authorizr
-  class Engine < Rails::Engine
-    engine_name :authorizr
+  module Rails
+    class Railtie < ::Rails::Railtie
+    end
   end
 end

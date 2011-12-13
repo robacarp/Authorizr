@@ -97,11 +97,11 @@ module Authorizr
     end
 
     def logit authorized
-      if Rails.env == 'development'
+      if ::Rails.env == 'development'
         if authorized
-          Rails.logger.warn "\033[32mGRANT:\033[0m #{self.controller_name} #{self.action_name}"
+          ::Rails.logger.warn "\033[32mGRANT:\033[0m #{self.controller_name} #{self.action_name}"
         else
-          Rails.logger.warn "\033[31mDENY:\033[0m #{self.controller_name} #{self.action_name}"
+          ::Rails.logger.warn "\033[31mDENY:\033[0m #{self.controller_name} #{self.action_name}"
         end
       end
     end
