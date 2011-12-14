@@ -4,10 +4,10 @@
 # -*- encoding: utf-8 -*-
 
 $:.push File.expand_path('../lib',__FILE__)
-require 'Authorizr/version'
+require 'authorizr/version'
 
 Gem::Specification.new do |s|
-  s.name = "Authorizr"
+  s.name = "authorizr"
   s.version = Authorizr::VERSION
   s.description = "Authorizr: A simple controller-centric authorization framework."
 
@@ -24,7 +24,6 @@ Gem::Specification.new do |s|
   s.rubygems_version = "1.8.10"
   s.summary = "Authentication and Authorization"
 
-  s.add_dependency 'Authorizr', '>= 0'
   s.add_dependency 'orm_adapter', '~> 0.0.5'
 end
 

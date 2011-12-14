@@ -1,12 +1,6 @@
-begin
-  require 'jeweler'
-  Jeweler::Tasks.new do |gem|
-    gem.name = 'Authorizr'
-    gem.summary = 'Authentication and Authorization'
-    gem.files = Dir["{lib}/**/*", "{app}/**/*", "{config}/**/*"]
-    gem.authors = ["Robert Carpenter"]
-    gem.add_dependency 'orm_adapter'
-  end
-rescue
-  puts "Something broke, fix it."
+
+desc "build the gem"
+task :build do
+  `bundle`
+  `gem build authorizr.gemspec`
 end
