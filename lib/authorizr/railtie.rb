@@ -5,11 +5,11 @@ module Authorizr
     class Railtie < ::Rails::Railtie
 
       ActiveSupport.on_load :action_controller do
-        require 'Authorizr/controller'
+        require 'authorizr/controller'
       end
 
       ActiveSupport.on_load :active_record do
-        require 'Authorizr/model'
+        require 'authorizr/model'
       end
 
     end
