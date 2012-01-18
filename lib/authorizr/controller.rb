@@ -124,10 +124,10 @@ module Authorizr
           model = nil
         end
       rescue ActiveRecord::RecordNotFound
-        Rails.logger.warn "\033[31m Record not found.  Model:#{model_name} ID:#{parameters[:id]}"
+        ::Rails.logger.warn "\033[31m #{model_name.titleize} record for id=#{parameters[:id]} not found. "
         model = resource = nil
       rescue NameError
-        Rails.logger.warn "\033[31m Name Error.  Model:#{model_name} ID:#{parameters[:id]}"
+        ::Rails.logger.warn "\033[31m Name Error.  Model:#{model_name} ID:#{parameters[:id]}"
         model = resource = nil
       end
 
